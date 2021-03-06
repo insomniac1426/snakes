@@ -1,15 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Comfortaa", cursive;
+        font-weight: 400;
+        /* background: rgb(234, 172, 139);
+        background: radial-gradient(
+          circle,
+          rgba(234, 172, 139, 1) 0%,
+          rgba(181, 101, 118, 1) 35%,
+          rgba(149, 96, 120, 1) 70%,
+          rgba(109, 89, 122, 1) 82%,
+          rgba(53, 80, 112, 1) 100%
+        ); */
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .main-board {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% - 51px));
+      }
+
+      canvas {
+        background: rgba(234, 172, 139, 0.5);
+
+        display: block;
+        border: 2px solid rgba(234, 172, 139, 1);
+      }
+
+      #start {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% + 51px));
+
+        width: 80px;
+        height: 30px;
+        background: transparent;
+        border: 2px solid #e56b6f;
+        color: #e56b6f;
+        font-size: 14px;
+        transition: 0.2s all ease;
+        cursor: pointer;
+      }
+
+      #start:hover {
+        background: #e56b6f;
+        color: #eaac8b;
+      }
+
+      #score-board {
+        width: 100%;
+      }
+    </style>
     <title>Snakes</title>
   </head>
   <body>
     <div class="main-board">
+      <p id="score-board">Score: 0</p>
       <canvas></canvas>
       <button id="start"></button>
-      <p id="score-board">Score: 0</p>
     </div>
   </body>
 </html>

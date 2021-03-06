@@ -89,6 +89,11 @@ function Game({ canvas, theme, gameUI }) {
   };
 
   this.setup = function ({ target }) {
+    this.score = 0;
+    if (this.throttledDraw) {
+      this.throttledDraw.throttleBy = 6;
+    }
+
     /** snake creation should preceed food creation */
     const snake = this.createSnake();
     this.updateFood(snake);
