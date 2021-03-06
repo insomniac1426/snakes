@@ -1,0 +1,22 @@
+.main-board {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+canvas {
+  background: #a7bf93;
+  display: block;
+}
+
+#start {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#score-board {
+  width: 100%;
+}
