@@ -7,8 +7,9 @@ function Snake(snakeProps) {
     initalHeadLocation,
     initialTailLocation,
     initialDirection,
+    theme,
   } = snakeProps;
-
+  this.theme = theme;
   this.joints = [initalHeadLocation, initialTailLocation];
   this.dir = initialDirection;
   this.length = Snake.calculateInitialLengthSnake(
@@ -36,7 +37,7 @@ function Snake(snakeProps) {
         );
       }
     });
-    c.fillStyle = "#636e72";
+    c.fillStyle = theme.SNAKE_BODY_COLOR;
     c.fill();
 
     c.beginPath();
@@ -46,7 +47,7 @@ function Snake(snakeProps) {
       GAME_DIM.SNAKE_WIDTH,
       GAME_DIM.SNAKE_WIDTH
     );
-    c.fillStyle = "#2d3436";
+    c.fillStyle = theme.SNAKE_HEAD_COLOR;
     c.fill();
   };
 
@@ -165,7 +166,7 @@ function Snake(snakeProps) {
         if (joint.y === this.joints[index + 1].y) {
           // no wrap and moving down
           if (location.y === joint.y && !this.joints[index + 1].isWrap) {
-            console.log(location, joint, this.joints);
+            // console.log(location, joint, this.joints);
             isColliding = checkIfNumberInBetween(
               location.x,
               joint.x,
@@ -256,6 +257,10 @@ function Snake(snakeProps) {
 
   this.stop = function () {
     this.alive = false;
+  };
+
+  this.isDead = function () {
+    return !this.alive;
   };
 }
 
