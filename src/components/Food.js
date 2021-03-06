@@ -1,6 +1,12 @@
 import BoardLocation from "./BoardLocation";
 import { GAME_DIM } from "../constants";
 
+const getFoodPath = (x, y, s) => {
+  return `M${x} ${y + s / 2} L ${x + s / 2} ${y} L ${x + s} ${y + s / 2} L ${
+    x + s / 2
+  } ${y + s} Z`;
+};
+
 function Food(foodProps) {
   const { location, theme } = foodProps;
 
@@ -8,14 +14,15 @@ function Food(foodProps) {
 
   this.draw = ({ canvas }) => {
     canvas.beginPath();
-    canvas.rect(
-      this.location.x,
-      this.location.y,
-      GAME_DIM.SNAKE_WIDTH,
-      GAME_DIM.SNAKE_WIDTH
-    );
+
+    const stX = this.location.x;
+    const stY = this.location.y;
+
+    let foodPath = new Path2D(getFoodPath(stX, stY, GAME_DIM.SNAKE_WIDTH));
+    canvas.strokeStyle = theme.FOOD_COLOR;
+    canvas.stroke(foodPath);
     canvas.fillStyle = theme.FOOD_COLOR;
-    canvas.fill();
+    canvas.fill(foodPath);
   };
 }
 

@@ -10,8 +10,6 @@ function StartBtn(element) {
   };
 
   this.setup = function ({ startOnClick }) {
-    console.log("hi", this.btnElement);
-
     this.setCaption(GAME_LOCALE.START_BTN_CAPTION);
     if (this.btnElement) {
       this.btnElement.addEventListener("click", () => {
